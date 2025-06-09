@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login - Ren Motors</title>
+  <style>
+    /* Fundo com imagem e efeito fosco */
+    body {
+      margin: 0;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: url('https://wallpapers.com/images/hd/1920x1080-motorcycle-red-black-blue-hlfwttk04g7l0h0j.jpg') no-repeat center center/cover;
+      filter: brightness(0.4); /* blur removido */
+      z-index: -2;
+    }
+
+    /* Overlay escuro semitransparente para dar contraste */
+    body::after {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: -1;
+    }
+
+    .login-container {
+      background-color: rgba(26, 26, 26, 0.85);
+      padding: 2.5rem 3rem;
+      border-radius: 12px;
+      border: 2px solid #0066ff;
+      width: 360px;
+      box-sizing: border-box;
+      box-shadow: 0 0 15px rgba(0,102,255,0.7);
+      backdrop-filter: saturate(180%) blur(12px);
+    }
+
+    h2 {
+      color: #ff0000;
+      text-align: center;
+      margin-bottom: 2rem;
+      font-weight: normal;
+      font-size: 2rem;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="tel"] {
+      width: 100%;
+      padding: 0.85rem;
+      margin: 0.7rem 0 1.2rem 0;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      box-sizing: border-box;
+      outline: none;
+      background-color: #333333;
+      color: white;
+    }
+
+    input::placeholder {
+      color: #bbb;
+    }
+
+    button {
+      width: 100%;
+      background-color: #0066ff;
+      border: none;
+      padding: 1rem;
+      border-radius: 6px;
+      font-size: 1.1rem;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-top: 0.5rem;
+    }
+
+    button:hover {
+      background-color: #0044cc;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h2>Login Ren Motors</h2>
+    <form id="loginForm" onsubmit="return validarLogin()">
+      <input type="text" id="username" name="username" placeholder="Usuário" autocomplete="username" />
+      <input type="password" id="password" name="password" placeholder="Senha" autocomplete="current-password" />
+      <input type="tel" id="telefone" name="telefone" placeholder="Telefone" autocomplete="tel" />
+      <button type="submit">Entrar</button>
+    </form>
+  </div>
+
+  <script>
+    function validarLogin() {
+      const user = document.getElementById('username').value.trim();
+      const pass = document.getElementById('password').value.trim();
+      const tel = document.getElementById('telefone').value.trim();
+
+      if (!user || !pass || !tel) {
+        alert('Por favor, preencha todos os campos.');
+        return false;
+      }
+
+      const telRegex = /^[0-9]{10,11}$/;
+      if (!telRegex.test(tel)) {
+        alert('Por favor, informe um telefone válido com 10 ou 11 dígitos numéricos.');
+        return false;
+      }
+
+      window.location.href = 'maismotos.html';
+      return false;
+    }
+  </script>
+</body>
+</html>

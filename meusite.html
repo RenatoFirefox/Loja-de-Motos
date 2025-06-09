@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ren Motors - Motos Esportivas</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      background: linear-gradient(135deg, #0f1c2e, #1a2b45);
+      color: #ffffff;
+    }
+    #header {
+      background-color: #000;
+      color: #ff0000;
+      padding: 1rem;
+      border-bottom: 2px solid #ffffff;
+    }
+    #header header {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    #header nav a {
+      color: #ffffff;
+      margin-left: 1rem;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    #hero {
+      background: url('https://images.unsplash.com/photo-1614842871436-9b5f13c5ed4d?auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+      height: 400px;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 2rem;
+    }
+    #hero h1 {
+      font-size: 2.8rem;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 1rem 2rem;
+      border-radius: 10px;
+      color: #ff0000;
+    }
+    section {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    h2, h3 {
+      color: #ff0000;
+    }
+    #sobre p {
+      font-size: 1.2rem;
+    }
+    #modelos {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .card {
+      background: #1a1a1a;
+      border: 2px solid #ff0000;
+      border-radius: 10px;
+      padding: 1rem;
+      flex: 1 1 30%;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+      text-align: center;
+    }
+    .card img {
+      max-width: 100%;
+      border-radius: 10px;
+    }
+    .card button {
+      background: #0066ff;
+      color: white;
+      border: none;
+      padding: 0.7rem 1.2rem;
+      margin-top: 0.5rem;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .card button:hover {
+      background: #0044cc;
+    }
+    blockquote {
+      font-style: italic;
+      border-left: 5px solid #0066ff;
+      margin: 1rem 0;
+      padding-left: 1rem;
+      color: #ccc;
+      background: #101010;
+      border-radius: 5px;
+    }
+    #cta {
+      text-align: center;
+      background: #ff0000;
+      color: white;
+      padding: 2rem 1rem;
+      border-radius: 10px;
+      border: 3px solid #ffffff;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    }
+    #cta button {
+      background: #0066ff;
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      border-radius: 5px;
+      color: white;
+      cursor: pointer;
+    }
+    #cta button:hover {
+      background: #0044cc;
+    }
+    footer {
+      background: #000;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      border-top: 2px solid #ffffff;
+    }
+    footer a {
+      color: #0066ff;
+      text-decoration: none;
+      margin: 0 0.5rem;
+    }
+
+    /* Estilos do Modal de Login */
+    .modal {
+      display: none; /* escondido por padrão */
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.7);
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background-color: #1a1a1a;
+      padding: 2rem;
+      border-radius: 10px;
+      border: 2px solid #0066ff;
+      width: 320px;
+      color: white;
+      position: relative;
+    }
+    .modal-content h2 {
+      color: #ff0000;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    .modal-content input[type="text"],
+    .modal-content input[type="password"] {
+      width: 100%;
+      padding: 0.7rem;
+      margin: 0.5rem 0;
+      border: none;
+      border-radius: 5px;
+    }
+    .modal-content button {
+      background-color: #0066ff;
+      color: white;
+      border: none;
+      padding: 0.7rem 1.2rem;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 1rem;
+      width: 100%;
+      font-size: 1rem;
+    }
+    .modal-content button:hover {
+      background-color: #0044cc;
+    }
+    .close-btn {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #ff0000;
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+    .close-btn:hover {
+      color: #ff5555;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="header" role="banner">
+    <header>
+      <h1>RDJ Motors</h1>
+      <nav>
+        <a href="#hero">Início</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#modelos">Modelos</a>
+        <a href="#depoimentos">Depoimentos</a>
+        <a href="#cta">Compre</a>
+        <a href="login.html" id="loginBtn">Login</a>
+      </nav>
+    </header>
+  </div>
+
+  <section id="hero">
+    <h1>Motos Esportivas de Alto Desempenho - Acelere com Estilo</h1>
+  </section>
+
+  <section id="sobre">
+    <h2>Quem Somos</h2>
+    <p>A <strong>RDJ Motors</strong> Na RDJ Motors, unimos paixão, inovação e qualidade para oferecer motos esportivas que entregam desempenho, segurança e design moderno. Somos referência nacional para quem busca adrenalina nas ruas e pistas, garantindo a melhor experiência sobre duas rodas.</p>
+  </section>
+
+  <section id="modelos">
+    <h2>Nossos Modelos</h2>
+
+    <div class="card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTd3urKhjsMdlLaRPbNwdDaEUx3TVFgdtXbXCtd6_XMDVJKL64_JJLdPWCZrEma4mdmVCc&usqp=CAU" alt="Moto Esportiva R3">
+      <h3>Yamaha R3</h3>
+      <p>Ágil, moderna e ideal para o dia a dia com pegada esportiva.</p>
+      <p>Preço: R$ 27.990</p>
+      <button onclick="alert('Obrigado! Em breve entraremos em contato.')">Compre Agora</button>
+    </div>
+
+    <div class="card">
+      <img src="https://www.kawasakione.com.br/wp-content/uploads/2024/07/Destaque-ZX6R-KRT-2025.jpg" alt="Moto Esportiva Ninja ZX-6R">
+      <h3>Kawasaki Ninja ZX-6R</h3>
+      <p>Potência e aerodinâmica para dominar as pistas e ruas.</p>
+      <p>Preço: R$ 55.990</p>
+      <button onclick="alert('Obrigado! Em breve entraremos em contato.')">Compre Agora</button>
+    </div>
+
+    <!-- Mais cards podem ser adicionados aqui -->
+
+  </section>
+
+  <!-- Outras seções podem continuar -->
+
+  <footer>
+    <p>© 2025 Rdj Motors. Todos os direitos reservados.</p>
+  </footer>
+
+</body>
+</html>
